@@ -5,40 +5,26 @@ class HomeScreenP extends StatelessWidget {
   const HomeScreenP({super.key});
   @override
   Widget build(BuildContext context) {
-    final menuOptions = AppRoute.menuOptions; // Lista de opciones del menú
+    final menuOptions = AppRoute.menuOptions;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Portal Ingenieria de Sistemas'),
+        title: Text('Portal Ingenieria de Sistemasss'),
         elevation: 0,
         backgroundColor: Colors.deepOrangeAccent[300],
       ),
       body: ListView.separated(
         itemBuilder: (context, index) {
-          final menuOption = menuOptions[index]; // Accede al elemento actual
+          final menuOption = menuOptions[index];
           return ListTile(
-            leading: Icon(menuOption.icon), // Usa el ícono del menú
-            title: Text(menuOption.name), // Usa el nombre del menú
+            leading: Icon(menuOption.icon),
+            title: Text(menuOption.name),
             onTap: () {
-              // Muestra un diálogo con la información del menú
-              showDialog(
-                context: context,
-                builder:
-                    (context) => AlertDialog(
-                      title: Text(menuOption.name),
-                      content: Text('Ruta: ${menuOption.route}'),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(context),
-                          child: Text('Cerrar'),
-                        ),
-                      ],
-                    ),
-              );
+              Navigator.pushNamed(context, menuOption.route);
             },
           );
         },
         separatorBuilder: (_, __) => Divider(),
-        itemCount: menuOptions.length, // Número de elementos en el menú
+        itemCount: menuOptions.length,
       ),
     );
   }

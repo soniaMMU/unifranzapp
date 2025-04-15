@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:unifranz/models/menu_options.dart';
+import 'package:unifranz/screens/card_screen.dart';
 
 import '../screens/alert_screen.dart';
 import '../screens/screen.dart';
@@ -42,6 +43,12 @@ class AppRoute {
       icon: Icons.newspaper,
       name: 'Noticias',
       screen: const NoticiaScreen(),
+    ),
+    MenuOptions(
+      route: 'Card',
+      icon: Icons.card_giftcard,
+      name: 'Card',
+      screen: CardScreen(),
     ),
   ];
 
