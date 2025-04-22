@@ -3,28 +3,23 @@ import 'package:unifranz/router/app_route.dart';
 
 class HomeScreenP extends StatelessWidget {
   const HomeScreenP({super.key});
+
   @override
   Widget build(BuildContext context) {
     final menuOptions = AppRoute.menuOptions;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Portal Ingenieria de Sistemasss'),
-        elevation: 0,
-        backgroundColor: Colors.deepOrangeAccent[300],
+        title: const Text('Portal Ingenieria de Sistemas'),
+        backgroundColor: Colors.deepOrangeAccent,
       ),
       body: ListView.separated(
-        itemBuilder: (context, index) {
-          final menuOption = menuOptions[index];
-          return ListTile(
-            leading: Icon(menuOption.icon),
-            title: Text(menuOption.name),
-            onTap: () {
-              Navigator.pushNamed(context, menuOption.route);
-            },
-          );
-        },
-        separatorBuilder: (_, __) => Divider(),
         itemCount: menuOptions.length,
+        separatorBuilder: (_, __) => const Divider(),
+        itemBuilder: (context, i) => ListTile(
+          title: Text(menuOptions[i].name),
+          leading: Icon(menuOptions[i].icon),
+          onTap: () => Navigator.pushNamed(context, menuOptions[i].route),
+        ),
       ),
     );
   }

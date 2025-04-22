@@ -50,6 +50,12 @@ class AppRoute {
       name: 'Card',
       screen: CardScreen(),
     ),
+    MenuOptions(
+      route: 'Avatar',
+      icon: Icons.accessibility_new,
+      name: 'AvatarScreen',
+      screen: const AvatarScreen(),
+    ),
   ];
 
   /*

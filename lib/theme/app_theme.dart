@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const Color primary = Colors.deepOrangeAccent;
-  
-  // Puedes agregar más configuraciones de tema aquí
+  static ValueNotifier<bool> isDarkTheme = ValueNotifier(false);
+
+  static ThemeData getTheme() {
+    return ThemeData(
+      primaryColor: isDarkTheme.value ? Colors.purple : Colors.deepOrangeAccent,
+      appBarTheme: AppBarTheme(
+        backgroundColor: isDarkTheme.value ? Colors.purple : Colors.deepOrangeAccent,
+      ),
+    );
+  }
 }
